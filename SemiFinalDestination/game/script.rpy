@@ -15,156 +15,117 @@ define N = Character('Morgan Freeman', color="FFFFFF")
 
 # The game starts here.
 label start:
-    init python:
-        test = False
-        pointLimit = 1000
-        points = [0,0,0,0,0]
-        alive = [True,True,True,True,True]
+init python:
+    test = False
+    pointLimit = 1000
+    points = [0,0,0,0,0]
+    alive = [True,True,True,True,True]
 
-        def score(a,n,f,v,w):
-            points[0] += a
-            points[1] += n
-            points[2] += f
-            points[3] += v
-            points[4] += w
+    def score(a,n,f,v,w):
+        points[0] += a
+        points[1] += n
+        points[2] += f
+        points[3] += v
+        points[4] += w
+  
+    def whoDies():
+        for ii in range(0,5):
+            if points[ii] > pointLimit:
+                return ii
+        return -1
+#Scene 1
+N "This is a story."
 
+N "This is a story about six very typical people."
 
-    #Scene 1
-    N "This is a story."
+N "But this is not a very typical story."
 
-    N "This is a story about six very typical people."
+#Scene 2
+#Show Biff
+N "{color=#FF0088}Biff{/color}. College varsity football quarterback, his ego is bigger than his ____."
+#Hide Biff
 
-    N "But this is not a very typical story."
+#Show Billy
+N "{color=#0000FF}Billy{/color}. Nerd, 'nuff said."
+#Hide Billy
 
-    #Scene 2
-    #Show Biff
-    N "{color=#FF0088}Biff{/color}. College varsity football quarterback, his ego is bigger than his ____."
-    #Hide Biff
+#Show Barney
+N "{color=#FF00FF}Barney{/color}. Fool of a Took, I wouldn't trust him with a ."
+#Hide Barney
 
-    #Show Billy
-    N "{color=#0000FF}Billy{/color}. Nerd, 'nuff said."
-    #Hide Billy
+#Show Beep-Boop
+N "{color=#888888}Beep-Boop{/color}. Your friendly neighborhood robot. He helps out the elderly with their grocery shopping on the weekends."
+#Hide Beep-Boop
 
-    #Show Barney
-    N "{color=#FF00FF}Barney{/color}. Fool of a Took, I wouldn't trust him with a ."
-    #Hide Barney
+#Show Betsy
+N "{color=#FFFF00}Betsy{/color}. Cute, innocent, maybe too innocent..."
+#Hide Betsy
 
-    #Show Beep-Boop
-    N "{color=#888888}Beep-Boop{/color}. Your friendly neighborhood robot. He helps out the elderly with their grocery shopping on the weekends."
-    #Hide Beep-Boop
+#Show Belinda
+N "{color=#FF0000}Belinda{/color}. Comes with a side of crabs, if you know what I mean."
+#Hide Belinda
 
-    #Show Betsy
-    N "{color=#FFFF00}Betsy{/color}. Cute, innocent, maybe too innocent..."
-    #Hide Betsy
+N "How are they related?"
 
-    #Show Belinda
-    N "{color=#FF0000}Belinda{/color}. Comes with a side of crabs, if you know what I mean."
-    #Hide Belinda
+#Show Murderer
+N "Looks like we're about to find out."
+#Hide Murderer
 
-    N "How are they related?"
+jump cabin_ent #cabin.rpy
 
-    #Show Murderer
-    N "Looks like we're about to find out."
-    #Hide Murderer
+label panicEvent_1:
+#Cabin Panic Event
+#show cabin room
+#play music suspenseful
+"The killer is entering the cabin! Hide!"
+menu:
+    "Behind Armchair":
+        $ score(30, 5, 50, 70, 15)
+        jump panicEventResolution_1
+    "In Closet":
+        $ score(5, 70, 30, 15, 50)
+        jump panicEventResolution_1
+    "Under Bed":
+        $ score(50, 30, 15, 5, 70)
+        jump panicEventResolution_1
+    "Under Table":
+        $ score(70, 15, 5, 50, 30) 
+        jump panicEventResolution_1
+    "Behind Door":
+        $ score(15, 50, 70, 30, 5)
+        jump panicEventResolution_1
 
-    #Scene 3
-    label intro_1:
-    "Our unlikely gang of six have arrived at a cabin in the woods to celebrate the end of a hard school year."
+label panicEventResolution_1:
+    "You are all really stupid and should have ran the fuck away from the house. you are all dead now."
+    jump panicEvent_2
 
-    #Log cabin background
-    #Show all 6 characters
+label panicEvent_2:
+#Utility Shed Panic Event
+#show utility shed
+#play music suspenseful
 
-    #athlete to front
-    a "Brotastic!"
+"The killer is coming into the shed! Pick a defender! Pick a weapon!"
+menu:
+    "Saw":
+        $ score(15, 70, 30, 50, 0)
+        jump panicEventResolution_2    
+    "Drill":
+        $ score(70, 0, 50, 15, 30)
+        jump panicEventResolution_2
+    "Hedge Clippers":
+        $ score(15, 50, 15, 0, 15)
+        jump panicEventResolution_2
+    "Machete":
+        $ score(30, 70, 0, 50, 15)
+        jump panicEventResolution_2
+    "Shovel":
+        $ score(15, 50, 70, 30, 0)
+        jump panicEventResolution_2
+    "Rubber Duck":
+        $ score(100, 100, 100, 100, 100)
+        jump panicEventResolution_2
 
-    #fool to front
-    f "Let's drink all day and all night and all day again."
+label panicEventResolution_2:
+    "Why the hell didn't you choose the god damn rubber duck?? Y'all are pretty special. and dead."
 
-    #robot to front
-    r "Boop boop beep boop."
-
-    N "What should they do?"
-    menu:
-        "Party!":
-            $ score(0,40,15,30,5)
-            #hide all except athlete
-            s "Let the brewskies flooowwww!"
-            jump intro_2
-        "Cook some food on the meager stove.":
-            $ score(5,30,0,5,15)
-            #hide all except nerd
-            n "Damn that was crappy food."
-            jump intro_2
-        "Explore the woods.":
-            $ score(15,0,30,15,40)
-            #hide all except fool
-            f "I'm gonna go skinny dipping in the lake!"
-            jump intro_2
-        "Go to sleep.":
-            jump scene_1
-
-    label intro_2:
-        menu:
-            "Go to sleep.":
-                jump scene_1
-
-    label scene_1:
-        "Test."
-        jump panicEvent_1
-
-    label panicEvent_1:
-    #Cabin Panic Event
-    #show cabin room
-    #play music suspenseful
-    "The killer is entering the cabin! Hide!"
-    menu:
-        "Behind Armchair":
-            $ score(30, 5, 50, 70, 15)
-            jump panicEventResolution_1
-        "In Closet":
-            $ score(5, 70, 30, 15, 50)
-            jump panicEventResolution_1
-        "Under Bed":
-            $ score(50, 30, 15, 5, 70)
-            jump panicEventResolution_1
-        "Under Table":
-            $ score(70, 15, 5, 50, 30) 
-            jump panicEventResolution_1
-        "Behind Door":
-            $ score(15, 50, 70, 30, 5)
-            jump panicEventResolution_1
-
-    label panicEventResolution_1:
-        "You are all really stupid and should have ran the fuck away from the house. you are all dead now."
-        jump panicEvent_2
-
-    label panicEvent_2:
-    #Utility Shed Panic Event
-    #show utility shed
-    #play music suspenseful
-
-    "The killer is coming into the shed! Pick a defender! Pick a weapon!"
-    menu:
-        "Saw":
-            $ score(15, 70, 30, 50, 0)
-            jump panicEventResolution_2    
-        "Drill":
-            $ score(70, 0, 50, 15, 30)
-            jump panicEventResolution_2
-        "Hedge Clippers":
-            $ score(15, 50, 15, 0, 15)
-            jump panicEventResolution_2
-        "Machete":
-            $ score(30, 70, 0, 50, 15)
-            jump panicEventResolution_2
-        "Shovel":
-            $ score(15, 50, 70, 30, 0)
-            jump panicEventResolution_2
-        "Rubber Duck":
-            $ score(100, 100, 100, 100, 100)
-            jump panicEventResolution_2
-
-    label panicEventResolution_2:
-        "Why the hell didn't you choose the god damn rubber duck?? Y'all are pretty special. and dead."
-
-    return
+return
