@@ -1,4 +1,4 @@
-Sat Oct 26 04:05:09 2013
+Sat Oct 26 07:43:33 2013
 Windows-7-6.1.7601-SP1
 Ren'Py 6.15.7.374
 A Ren'Py Game 0.0
@@ -312,10 +312,10 @@ Performance test:
 Windowed mode.
 Screen sizes: virtual=(800, 600) physical=(800, 600)
 - Frame drawn at 0.021000 seconds.
-- Frame drawn at 0.024000 seconds.
-- Frame drawn at 0.028000 seconds.
-- Frame drawn at 0.044000 seconds.
-- 0.044000 seconds to render 5 frames.
+- Frame drawn at 0.034000 seconds.
+- Frame drawn at 0.039000 seconds.
+- Frame drawn at 0.055000 seconds.
+- 0.055000 seconds to render 5 frames.
 Deallocating textures.
 Done deallocating textures.
 About to quit GL.

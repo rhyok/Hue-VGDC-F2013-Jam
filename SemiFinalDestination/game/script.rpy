@@ -15,15 +15,19 @@ define N = Character('Morgan Freeman', color="FFFFFF")
 
 # The game starts here.
 label start:
+    init python:
+        test = False
+        pointLimit = 1000
+        points = [0,0,0,0,0]
+        alive = [True,True,True,True,True]
 
-    #init python:
-    #    def scenes(sceneName):
+        def score(a,n,f,v,w):
+            points[0] += a
+            points[1] += n
+            points[2] += f
+            points[3] += v
+            points[4] += w
 
-
-    $ test = False
-    $ pointLimit = 1000
-    $ points = [0,0,0,0,0]
-    $ alive = [True,True,True,True,True]
 
     #Scene 1
     N "This is a story."
@@ -64,8 +68,48 @@ label start:
     #Hide Murderer
 
     #Scene 3
-    label intro:
+    label intro_1:
+    "Our unlikely gang of six have arrived at a cabin in the woods to celebrate the end of a hard school year."
 
+    #Log cabin background
+    #Show all 6 characters
+
+    #athlete to front
+    a "Brotastic!"
+
+    #fool to front
+    f "Let's drink all day and all night and all day again."
+
+    #robot to front
+    r "Boop boop beep boop."
+
+    N "What should they do?"
+    menu:
+        "Party!":
+            $ score(0,40,15,30,5)
+            #hide all except athlete
+            s "Let the brewskies flooowwww!"
+            jump intro_2
+        "Cook some food on the meager stove.":
+            $ score(5,30,0,5,15)
+            #hide all except nerd
+            n "Damn that was crappy food."
+            jump intro_2
+        "Explore the woods.":
+            $ score(15,0,30,15,40)
+            #hide all except fool
+            f "I'm gonna go skinny dipping in the lake!"
+            jump intro_2
+        "Go to sleep.":
+            jump scene_1
+
+    label intro_2:
+        menu:
+            "Go to sleep.":
+                jump scene_1
+
+    label scene_1:
+        "Test."
 
 
     return
