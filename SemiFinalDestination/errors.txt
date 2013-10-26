@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 109: expected menuitem
-    jump scene_1
-    ^
+File "game/script.rpy", line 130: invalid syntax
+    score(70, 15, 5 50, 30) 
+                      ^
+    
 
 Ren'Py Version: Ren'Py 6.15.7.374
