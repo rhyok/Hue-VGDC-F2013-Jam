@@ -2,8 +2,14 @@
 errors listed below, and try again.
 
 
+<<<<<<< HEAD
+File "game/script.rpy", line 5: expected '=' not found.
+    image cabin internal 
+                         ^
+=======
 File "game/cabin.rpy", line 51: expected ':' not found.
     label cabin_ent_n_choice
                             ^
+>>>>>>> 48f9fcf20475771cfd38dc4d63c9f765f9060a45
 
 Ren'Py Version: Ren'Py 6.15.7.374

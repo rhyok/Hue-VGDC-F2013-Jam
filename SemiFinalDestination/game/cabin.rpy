@@ -35,7 +35,7 @@ menu:
         $ score(30,0,0,0,0)
         #hide all except fool
         N "Biff decides to go find an open patch of field to toss the ball around, when he trips on a object hidden in the grass. A hockey mask?"
-        b "Oh sweet, there is an ice rink around here!?"
+        r "Oh sweet, there is an ice rink around here!?"
         jump cabin_ent_n_choice
     "Go to sleep.":
         $ score(10,0,0,0,0)
@@ -45,7 +45,7 @@ menu:
     "Have sex with Beep Boop":
         $ score(100,0,0,0,0)
         N "Biff finally succumbs to his robo-sexual preferences and romances Beep Boop."
-        b "PENIS PENIS PENIS PENIS PENIS PENIS PENIS"
+        r "PENIS PENIS PENIS PENIS PENIS PENIS PENIS"
         N "The loud clanking of Biff's athletic body against Beep Boop alerts almost everything in the forest to their presence."
 
 label cabin_ent_n_choice:
@@ -75,8 +75,9 @@ menu:
     "Have sex with Beep Boop":
         $ score(100,0,0,0,0)
         N "Biff finally succumbs to his robo-sexual preferences and romances Beep Boop."
-        b "PENIS PENIS PENIS PENIS PENIS PENIS PENIS"
+        r "PENIS PENIS PENIS PENIS PENIS PENIS PENIS"
         N "The loud clanking of Biff's athletic body against Beep Boop alerts almost everything in the forest to their presence."
+        jump scene_1
 label intro_2:
 menu:
     "Go to sleep.":

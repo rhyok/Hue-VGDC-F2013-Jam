@@ -2,6 +2,10 @@
 
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
+<<<<<<< HEAD
+#image cabin internal 
+=======
+>>>>>>> 48f9fcf20475771cfd38dc4d63c9f765f9060a45
 
 # Declare characters used by this game.
 define a = Character('Biff', color="#FF0088")
@@ -100,32 +104,6 @@ N "Looks like we're about to find out."
 #Hide Murderer
 
 jump cabin_ent #cabin.rpy
-
-label panicEvent_1:
-#Cabin Panic Event
-#show cabin room
-#play music suspenseful
-"The killer is entering the cabin! Hide!"
-menu:
-    "Behind Armchair":
-        $ score(30, 5, 50, 70, 15)
-        jump panicEventResolution_1
-    "In Closet":
-        $ score(5, 70, 30, 15, 50)
-        jump panicEventResolution_1
-    "Under Bed":
-        $ score(50, 30, 15, 5, 70)
-        jump panicEventResolution_1
-    "Under Table":
-        $ score(70, 15, 5, 50, 30) 
-        jump panicEventResolution_1
-    "Behind Door":
-        $ score(15, 50, 70, 30, 5)
-        jump panicEventResolution_1
-
-label panicEventResolution_1:
-    "You are all really stupid and should have ran the fuck away from the house. you are all dead now."
-    jump panicEvent_2
 
 label panicEvent_2:
 #Utility Shed Panic Event
