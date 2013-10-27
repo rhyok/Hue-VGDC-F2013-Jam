@@ -49,11 +49,11 @@ menu:
         N "The loud clanking of Biff's athletic body against Beep Boop alerts almost everything in the forest to their presence."
 
 label cabin_ent_n_choice
-a " My calculations indicate that the optimal course of action might be amongst these choices..."
+n " My calculations indicate that the optimal course of action might be amongst these choices..."
 menu:
     "Party!":
         $ score(0,0,0,0,0)
-        N "With social stigmas pressuring him from all fronts, Bill caves into his newfound \"cool\" friends and requests to party. Not used to the alcohol, Bill passes out within the first hour."
+        N "With social stigmas pressuring him from all fronts, Billy caves into his newfound \"cool\" friends and requests to party. Not used to the alcohol, Bill passes out within the first hour."
         jump cabin_ent_n_choice
     "Cook some food on the meager stove.":
         $ score(30,0,0,0,0)

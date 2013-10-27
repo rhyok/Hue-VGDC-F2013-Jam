@@ -2,6 +2,7 @@
 
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
+image cabin internal 
 
 # Declare characters used by this game.
 define a = Character('Biff', color="#FF0088")
@@ -33,6 +34,16 @@ init python:
             if points[ii] > pointLimit:
                 return ii
         return -1
+
+    def killSomeone():
+        max = 0
+        kill = -1
+        for i in range(0,5):
+            if points[i] > max:
+                max = points[i]
+                kill = i
+        return kill
+
 #Scene 1
 N "This is a story."
 
