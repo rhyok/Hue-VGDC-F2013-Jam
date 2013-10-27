@@ -20,6 +20,7 @@ init python:
     pointLimit = 1000
     points = [0,0,0,0,0]
     alive = [True,True,True,True,True]
+    chars = [a,n,f,v,w,r,m]
 
     def score(a,n,f,v,w):
         points[0] += a
@@ -27,12 +28,20 @@ init python:
         points[2] += f
         points[3] += v
         points[4] += w
-  
-    def whoDies():
-        for ii in range(0,5):
-            if points[ii] > pointLimit:
-                return ii
-        return -1
+
+    def score(b, score):
+        if b == a:
+            a += score
+        elif b == n:
+            n += score
+        elif b == f:
+            f += score
+        elif b == v:
+            v += score
+        elif b == w:
+            w += score
+        else:
+            return -1
 
     def killSomeone():
         max = 0
@@ -41,7 +50,16 @@ init python:
             if points[i] > max:
                 max = points[i]
                 kill = i
-        return kill
+        alive[i] = False
+
+    def checkStatus(b):
+        return {
+            a:alive[0],
+            n:alive[1],
+            f:alive[2],
+            v:alive[3],
+            w:alive[4]
+        }.get(b, -1)
 
 #Scene 1
 N "This is a story."
