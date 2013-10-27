@@ -48,7 +48,7 @@ menu:
         b "PENIS PENIS PENIS PENIS PENIS PENIS PENIS"
         N "The loud clanking of Biff's athletic body against Beep Boop alerts almost everything in the forest to their presence."
 
-label cabin_ent_n_choice
+label cabin_ent_n_choice:
 n " My calculations indicate that the optimal course of action might be amongst these choices..."
 menu:
     "Party!":
