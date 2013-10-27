@@ -2,10 +2,6 @@
 
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
-<<<<<<< HEAD
-#image cabin internal 
-=======
->>>>>>> 48f9fcf20475771cfd38dc4d63c9f765f9060a45
 
 # Declare characters used by this game.
 define a = Character('Biff', color="#FF0088")
@@ -17,9 +13,49 @@ define m = Character('??????', color="000000")
 define r = Character('Beep-Boop', color="888888")
 define N = Character('Morgan Freeman', color="FFFFFF")
 
+#Load assets
+image bg forest         = "Assets/bg_forest.png"
+image bg cabin interior = "Assets/bg_cabin_in.png"
+image black             = "#444444"
+
+image athlete   = "Assets/char_athlete.png"
+image nerd      = "Assets/char_nerd.png"
+image virgin    = "Assets/char_virgin.png"
+image whore     = "Assets/char_whore.png"
+image fool      = "Assets/char_fool.png"
+image monster   = "Assets/char_monster.png"
+image beepboop1 = "Assets/char_beepboop1.png"
+image beepboop2 = "Assets/char_beepboop2.png"
+
+#Transformations
+transform slide_in_from_left_to(xa):
+    xanchor 1.0
+    xpos 0
+    linear 0.5 xalign xa
+    
+transform slide_out_right():
+    linear 0.5 xalign 2.0
+
+transform yalign_aboveText():
+    yanchor 1.0
+    ypos 0.75
+    
+transform dance():
+    xanchor 0.5
+    parallel:
+        linear 0.25 xpos 0.6
+        linear 0.25 xzoom -1.0
+    pause 0.5
+    parallel:
+        linear 0.25 xpos 0.4
+        linear 0.25 xzoom 1.0
+    pause 0.5
+    repeat
+   
 # The game starts here.
 label start:
 init python:
+    import random
     test = False
     pointLimit = 1000
     points = [0,0,0,0,0]
@@ -66,6 +102,8 @@ init python:
         }.get(b, -1)
 
 #Scene 1
+scene black
+
 N "This is a story."
 
 N "This is a story about six very typical people."
@@ -73,35 +111,49 @@ N "This is a story about six very typical people."
 N "But this is not a very typical story."
 
 #Scene 2
-#Show Biff
+show athlete:
+    left
+    yalign_aboveText
 N "{color=#FF0088}Biff{/color}. College varsity football quarterback, his ego is bigger than his ____."
-#Hide Biff
+hide athlete
 
-#Show Billy
+show nerd:
+    right
+    yalign_aboveText
 N "{color=#0000FF}Billy{/color}. Nerd, 'nuff said."
-#Hide Billy
+hide nerd
 
-#Show Barney
+show fool:
+    left
+    yalign_aboveText
 N "{color=#FF00FF}Barney{/color}. Fool of a Took, I wouldn't trust him with a ."
-#Hide Barney
+hide fool
 
-#Show Beep-Boop
+show beepboop1:
+    right
+    yalign_aboveText
 N "{color=#888888}Beep-Boop{/color}. Your friendly neighborhood robot. He helps out the elderly with their grocery shopping on the weekends."
-#Hide Beep-Boop
+hide beepboop1
 
-#Show Betsy
+show virgin:
+    left
+    yalign_aboveText
 N "{color=#FFFF00}Betsy{/color}. Cute, innocent, maybe too innocent..."
-#Hide Betsy
+hide virgin
 
-#Show Belinda
+show whore:
+    left
+    yalign_aboveText
 N "{color=#FF0000}Belinda{/color}. Comes with a side of crabs, if you know what I mean."
-#Hide Belinda
+hide whore
 
 N "How are they related?"
 
-#Show Murderer
+show monster:
+    center
+    yalign_aboveText
 N "Looks like we're about to find out."
-#Hide Murderer
+hide monster
 
 jump cabin_ent #cabin.rpy
 
