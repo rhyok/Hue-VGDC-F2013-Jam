@@ -2,7 +2,10 @@
 
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
+<<<<<<< HEAD
 #image cabin internal 
+=======
+>>>>>>> 48f9fcf20475771cfd38dc4d63c9f765f9060a45
 
 # Declare characters used by this game.
 define a = Character('Biff', color="#FF0088")
